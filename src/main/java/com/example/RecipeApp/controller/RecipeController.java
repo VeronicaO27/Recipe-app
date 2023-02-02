@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/recipes")
+@RequestMapping("/recipes")
 public class RecipeController {
 
     private final RecipeService recipeService;
@@ -33,7 +33,7 @@ public class RecipeController {
         return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<RecipeDto> save(@RequestBody RecipeDto recipeDto) {
         RecipeDto savedRecipe = recipeService.save(recipeDto);
         return new ResponseEntity<>(savedRecipe, HttpStatus.CREATED);

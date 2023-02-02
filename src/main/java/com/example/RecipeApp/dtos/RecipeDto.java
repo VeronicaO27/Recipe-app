@@ -27,12 +27,12 @@ public class RecipeDto implements Serializable {
         if (recipe.getName() != null) {
             this.name = recipe.getName();
         }
-        if (recipe.getCategory() != null) {
-            this.category = recipe.getCategory();
-        }
-        if (recipe.getIngredients() != null) {
-            this.ingredients = recipe.getIngredients();
-        }
+//        if (recipe.getCategory() != null) {
+//            this.category = recipe.getCategory();
+//        }
+//        if (recipe.getIngredients() != null) {
+//            this.ingredients = recipe.getIngredients();
+//        }
     }
 }
 

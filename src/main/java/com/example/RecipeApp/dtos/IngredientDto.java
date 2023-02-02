@@ -25,10 +25,10 @@ public class IngredientDto implements Serializable {
         if (ingredient.getName() != null) {
             this.name = ingredient.getName();
         }
-        if (ingredient.getQuantity() != null) {
-            this.quantity = ingredient.getQuantity();
-
-        }
+//        if (ingredient.getQuantity() != null) {
+//            this.quantity = ingredient.getQuantity();
+//
+//        }
     }
 }
 

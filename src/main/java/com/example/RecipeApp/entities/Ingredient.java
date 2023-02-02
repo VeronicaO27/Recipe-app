@@ -17,11 +17,13 @@ public class Ingredient {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "recipe_id")
-    private Recipe recipe;
+//    @ManyToOne
+//    @JoinColumn(name = "recipe_id")
+//    private Recipe recipe;
+//
+//    @Column(name= "quantity")
+//    private String quantity;
 
-    @Column(name= "quantity")
-    private String quantity;
+
 
 }
