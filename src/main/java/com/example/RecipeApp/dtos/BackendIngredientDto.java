@@ -14,7 +14,9 @@ public class BackendIngredientDto {
     private float quantity;
     private float weight;
     private String foodCategory;
-    private BackendMeasureDto measure;
-    private BackendFoodDto food;
+    private String measure;
+    private String food;
+    private String text;
+    private String image;
 
 }

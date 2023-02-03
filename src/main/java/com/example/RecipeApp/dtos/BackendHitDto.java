@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@JsonIgnoreProperties({"q", "from", "to", "more", "count"})
-public class BackendResponseDto implements Serializable {
-    private List<BackendHitDto> hits;
+public class BackendHitDto implements Serializable {
+    private BackendRecipeDto recipe;
 }

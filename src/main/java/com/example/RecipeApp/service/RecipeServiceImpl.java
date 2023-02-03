@@ -4,8 +4,10 @@ import com.example.RecipeApp.Repository.RecipeRepository;
 import com.example.RecipeApp.dtos.BackendResponseDto;
 import com.example.RecipeApp.dtos.RecipeDto;
 import com.example.RecipeApp.entities.Recipe;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.apache.coyote.Response;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -94,12 +96,23 @@ public class RecipeServiceImpl implements RecipeService {
                   response.append(inputReader);
               }
               logResponse.close();
-              JSONObject json = new JSONObject(response.toString());
-              json.keys();
-              System.out.println(json.keys().toString());
+//              JSONObject json = new JSONObject(response.toString());
+//              JSONArray jsonArray = json.getJSONArray("hits");
+//              return backendHelper(jsonArray);
+              ObjectMapper objectMapper = new ObjectMapper();
+              BackendResponseDto backendHelper = objectMapper.readValue(response.toString(), BackendResponseDto.class);
+              return backendHelper;
               }
           return null;
     }
+
+//    public BackendResponseDto backendHelper (JSONArray jsonArray) {
+//        for (var value : jsonArray ) {
+//
+//        }
+
+
+//    }
 
 //    return List.of();
 }

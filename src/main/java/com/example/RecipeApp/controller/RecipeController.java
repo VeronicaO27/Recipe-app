@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recipes")
+@CrossOrigin
 public class RecipeController {
 
     private final RecipeService recipeService;
@@ -30,11 +31,10 @@ public class RecipeController {
 //    }
 
     @GetMapping
-    public ResponseEntity<List<RecipeDto>> findBySearchText(@RequestParam("query") String query) throws IOException {
+    public ResponseEntity<BackendResponseDto> findBySearchText(@RequestParam("query") String query) throws IOException {
         System.out.println(query);
         BackendResponseDto recipes = recipeService.findByText(query);
-//        return new ResponseEntity<>(recipes, HttpStatus.OK);
-        return null;
+        return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
