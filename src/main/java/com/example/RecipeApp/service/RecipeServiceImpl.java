@@ -1,13 +1,24 @@
 package com.example.RecipeApp.service;
 
 import com.example.RecipeApp.Repository.RecipeRepository;
+import com.example.RecipeApp.dtos.BackendResponseDto;
 import com.example.RecipeApp.dtos.RecipeDto;
 import com.example.RecipeApp.entities.Recipe;
 import jakarta.persistence.EntityNotFoundException;
+import org.apache.coyote.Response;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.http.HttpRequest;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -65,5 +76,31 @@ public class RecipeServiceImpl implements RecipeService {
 //        recipe.setDirections(recipeDto.getDirections());
         return recipe;
     }
+
+    public BackendResponseDto findByText(String text) throws IOException {
+          String APP_KEY = "702ca81db952675a52b734115e10fb02";
+          String APP_ID = "ada143fb";
+          String API_URL = "https://api.edamam.com/search?q="+text+"&app_id="+APP_ID+"&app_key="+APP_KEY;
+          URL getRecipeUrl = new URL(API_URL);
+          HttpURLConnection getRecipeSearch = (HttpURLConnection) getRecipeUrl.openConnection();
+          getRecipeSearch.setRequestMethod("GET");
+          int responseCode = getRecipeSearch.getResponseCode();
+          if (responseCode == HttpURLConnection.HTTP_OK){
+              System.out.println("Success");
+              BufferedReader logResponse = new BufferedReader(new InputStreamReader(getRecipeSearch.getInputStream()));
+              String inputReader;
+              StringBuffer response = new StringBuffer();
+              while ((inputReader = logResponse.readLine())!= null) {
+                  response.append(inputReader);
+              }
+              logResponse.close();
+              JSONObject json = new JSONObject(response.toString());
+              json.keys();
+              System.out.println(json.keys().toString());
+              }
+          return null;
+    }
+
+//    return List.of();
 }
 

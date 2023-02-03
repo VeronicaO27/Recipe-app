@@ -1,6 +1,7 @@
 package com.example.RecipeApp.controller;
 
 
+import com.example.RecipeApp.dtos.BackendResponseDto;
 import com.example.RecipeApp.dtos.RecipeDto;
 import com.example.RecipeApp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -21,10 +23,18 @@ public class RecipeController {
         this.recipeService = recipeService;
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<RecipeDto>> findAll() {
+//        List<RecipeDto> recipes = recipeService.findAll();
+//        return new ResponseEntity<>(recipes, HttpStatus.OK);
+//    }
+
     @GetMapping
-    public ResponseEntity<List<RecipeDto>> findAll() {
-        List<RecipeDto> recipes = recipeService.findAll();
-        return new ResponseEntity<>(recipes, HttpStatus.OK);
+    public ResponseEntity<List<RecipeDto>> findBySearchText(@RequestParam("query") String query) throws IOException {
+        System.out.println(query);
+        BackendResponseDto recipes = recipeService.findByText(query);
+//        return new ResponseEntity<>(recipes, HttpStatus.OK);
+        return null;
     }
 
     @GetMapping("/{id}")

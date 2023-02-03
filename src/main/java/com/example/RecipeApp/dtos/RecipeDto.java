@@ -18,6 +18,8 @@ public class RecipeDto implements Serializable {
     private Long id;
     private String name;
     private String category;
+    private String key;
+    private String title;
     private List<Ingredient> ingredients;
 
     public RecipeDto(Recipe recipe) {
