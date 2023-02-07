@@ -17,10 +17,14 @@ import java.util.List;
 public class RecipeDto implements Serializable {
     private Long id;
     private String name;
-    private String category;
-    private String key;
-    private String title;
     private List<Ingredient> ingredients;
+    private float calories;
+    private String label;
+    private String image;
+    private long totalTime;
+    private int yield;
+    private String source;
+//    private List<BackendIngredientDto> ingredients;
 
     public RecipeDto(Recipe recipe) {
         if (recipe.getId() != null) {
@@ -29,12 +33,27 @@ public class RecipeDto implements Serializable {
         if (recipe.getName() != null) {
             this.name = recipe.getName();
         }
-//        if (recipe.getCategory() != null) {
-//            this.category = recipe.getCategory();
-//        }
-//        if (recipe.getIngredients() != null) {
-//            this.ingredients = recipe.getIngredients();
-//        }
+        if (recipe.getIngredients() != null) {
+            this.ingredients = recipe.getIngredients();
+        }
+        if (recipe.getLabel() != null) {
+            this.label = recipe.getLabel();
+        }
+        if (recipe.getImage() != null) {
+            this.image = recipe.getImage();
+        }
+        if (recipe.getTotalTime() > 0) {
+            this.totalTime = recipe.getTotalTime();
+        }
+        if (recipe.getYield() > 0) {
+            this.yield = recipe.getYield();
+        }
+        if (recipe.getSource() != null) {
+            this.source = recipe.getSource();
+        }
+        if (recipe.getCalories() > 0) {
+            this.calories = recipe.getCalories();
+        }
     }
 }
 

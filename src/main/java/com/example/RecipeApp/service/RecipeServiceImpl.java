@@ -6,6 +6,7 @@ import com.example.RecipeApp.dtos.RecipeDto;
 import com.example.RecipeApp.entities.Recipe;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.apache.coyote.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -48,10 +49,10 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public RecipeDto save(RecipeDto recipeDto) {
+    @Transactional
+    public void save(RecipeDto recipeDto) {
         Recipe recipe = toEntity(recipeDto);
-        Recipe savedRecipe = recipeRepository.save(recipe);
-        return toDTO(savedRecipe);
+        recipeRepository.saveAndFlush(recipe);
     }
 
     @Override

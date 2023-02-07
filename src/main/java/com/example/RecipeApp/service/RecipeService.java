@@ -10,7 +10,7 @@ import java.util.List;
 public interface RecipeService {
     List<RecipeDto> findAll();
     RecipeDto findById(Long id);
-    RecipeDto save(RecipeDto recipeDto);
+    void save(RecipeDto recipeDto);
     BackendResponseDto findByText(String text) throws IOException;
     void delete(Long id);
 }

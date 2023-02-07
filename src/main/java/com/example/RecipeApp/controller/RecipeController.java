@@ -44,9 +44,8 @@ public class RecipeController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<RecipeDto> save(@RequestBody RecipeDto recipeDto) {
-        RecipeDto savedRecipe = recipeService.save(recipeDto);
-        return new ResponseEntity<>(savedRecipe, HttpStatus.CREATED);
+    public  void save(@RequestBody RecipeDto recipeDto) {
+        recipeService.save(recipeDto);
     }
 
     @DeleteMapping("/{id}")
