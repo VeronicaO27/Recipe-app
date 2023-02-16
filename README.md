@@ -12,7 +12,9 @@ And to top it off, I implemented a RESTful API to allow the frontend to access t
 
 ## Frontend: Presentation is Everything
 
+Inline-style: 
 ![Screen Shot 2023-02-15 at 8 24 01 PM](https://user-images.githubusercontent.com/50117853/219252845-5ba97d4b-48cc-42ca-af67-1392ec80597b.png)
+Inline-style: 
 ![Screen Shot 2023-02-15 at 8 39 25 PM](https://user-images.githubusercontent.com/50117853/219254139-f92afced-e775-4015-9649-0bbe365519c9.png)
 
 The frontend, the cherry on top of this culinary creation, is made with React JS. This is how I made it look so good:
