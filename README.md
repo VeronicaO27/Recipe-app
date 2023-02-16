@@ -11,6 +11,10 @@ The backend of this delectable dish is made with Java and Spring Boot. And here'
 And to top it off, I implemented a RESTful API to allow the frontend to access the recipe data and perform searches based on ingredients and categories like a boss.
 
 ## Frontend: Presentation is Everything
+![Screen Shot 2023-02-15 at 8 22 52 PM](https://user-images.githubusercontent.com/50117853/219252834-c37735e1-bf49-4535-9ecc-b30849a4293f.png)
+![Screen Shot 2023-02-15 at 8 23 09 PM](https://user-images.githubusercontent.com/50117853/219252839-71c55377-ed2d-416a-be03-15bd06e069f5.png)
+![Screen Shot 2023-02-15 at 8 24 01 PM](https://user-images.githubusercontent.com/50117853/219252845-5ba97d4b-48cc-42ca-af67-1392ec80597b.png)
+![Screen Shot 2023-02-15 at 8 24 22 PM](https://user-images.githubusercontent.com/50117853/219252847-75c1281e-07b7-4884-81ad-3330697a3018.png)
 The frontend, the cherry on top of this culinary creation, is made with React JS. This is how I made it look so good:
 1. I created a new React project using Create React App.
 2. Defined the component for the search form, because searching for recipes should be easy and fun!
